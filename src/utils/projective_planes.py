@@ -2,7 +2,7 @@ import numpy as np
 from math import log2
 
 
-def is_prime(num: float) -> bool:
+def is_prime(num):
     """
     Check if a number is prime.
 
@@ -34,7 +34,7 @@ def is_prime(num: float) -> bool:
     return True
 
 
-def is_prime_power(num: float) -> bool:
+def is_prime_power(num):
     """
     Check if a number is a prime power.
 
@@ -70,7 +70,7 @@ def is_prime_power(num: float) -> bool:
     return False
 
 
-def compute_incidence_matrix(order: int) -> np.ndarray:
+def compute_incidence_matrix(order):
     """
     Compute the incidence matrix corresponding to a finite projective plane of the specified order.
 
