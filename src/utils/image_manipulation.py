@@ -1,48 +1,80 @@
 import numpy as np
+from PIL import Image, ImageDraw
 
 
-def convert_coords_to_pixels(rel_coords, image_size):
+def create_empty_card(image_size, return_pil=True):
     """
-    Convert relative coordinates to pixel values based on the size of a square image.
-
-    The function takes relative coordinates in the range of [-1, 1] and converts them to pixel values
-    based on the size of a square image. The relative coordinates are assumed to be in a normalized form,
-    where the origin (0, 0) corresponds to the center of the image and the values (-1, -1) and (1, 1)
-    correspond to the lower left and upper right corner of the image, respectively.
+    Create a square image of a white circle against a transparent background.
 
     Args:
-        rel_coords (np.ndarray or tuple): Relative coordinates in the range of [-1, 1] in the form (x, y).
-        image_size (int): Size of the square image.
+        image_size (int): The size of the square image in pixels.
+        return_pil (bool, optional): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
 
     Returns:
-        tuple[int, int]: Pixel values corresponding to the relative coordinates.
-
-    Raises:
-        ValueError: If the relative coordinates are outside the range of [-1, 1].
-
-    Examples:
-        >>> rel_coords = np.array([-0.5, 0.75])
-        >>> image_size = 512
-        >>> convert_coords_to_pixels(rel_coords, image_size)
-        (128, 448)
-
-        >>> rel_coords = (0.25, 0.5)
-        >>> image_size = 256
-        >>> convert_coords_to_pixels(rel_coords, image_size)
-        (160, 192)
+        PIL.Image.Image or np.ndarray: The generated image of a white circle against a transparent background.
     """
-    # Convert rel_coords to NumPy array if necessary
-    if not isinstance(rel_coords, np.ndarray):
-        rel_coords = np.array(rel_coords)
+    # Create a new transparent image with RGBA mode
+    image = Image.new("RGBA", (image_size, image_size), (0, 0, 0, 0))
 
-    # Check if the relative coordinates are within the range of [-1, 1]
-    if np.any((rel_coords < -1) | (rel_coords > 1)):
-        raise ValueError("Relative coordinates must be in the range of [-1, 1].")
+    # Create a new draw object
+    draw = ImageDraw.Draw(image)
 
-    # Shift coordinates from [-1, 1] to [0, 1]
-    rel_coords = rel_coords / 2 + 0.5
+    # Calculate the coordinates of the circle to maximize its size within the square image
+    circle_x = image_size // 2
+    circle_y = image_size // 2
+    radius = image_size // 2
 
-    # Scale coordinates from [0, 1] to [0, card_size] and convert to integer values
-    coords = np.floor(rel_coords * image_size).astype('int')
+    # Draw a white circle on the image
+    draw.ellipse((circle_x - radius, circle_y - radius,
+                  circle_x + radius, circle_y + radius),
+                 fill=(255, 255, 255, 255))
 
-    return tuple(coords)
+    if return_pil:
+        return image
+    else:
+        # Convert the image to a numpy array
+        image_array = np.array(image)
+        return image_array
+
+
+def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=True):
+    """
+    Draw a circle on the given PIL image.
+
+    Args:
+        image (PIL.Image.Image): The image on which to draw the circle.
+        center (tuple): The center coordinates of the circle in the form (x, y).
+        diameter (int): The diameter of the circle.
+        filled (bool, optional): Whether the circle should be filled (True) or just have an outline (False).
+            Defaults to False.
+        fill_color (tuple, optional): The fill color of the circle in RGB format.  Used when 'filled' is True.
+            Defaults to 0.
+        return_pil (bool, optional): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+
+    Returns:
+        PIL.Image.Image or np.ndarray: The modified image with the circle drawn onto it.
+    """
+    # Create a new draw object
+    draw = ImageDraw.Draw(image)
+
+    # Get x- and y-coordinates of the circle and compute radius
+    circle_x, circle_y = center
+    radius = diameter // 2
+
+    if filled:
+        # Draw a filled circle
+        draw.ellipse((circle_x - radius, circle_y - radius,
+                      circle_x + radius, circle_y + radius),
+                     fill=fill_color)
+    else:
+        # Draw the outline of the circle
+        draw.ellipse((circle_x - radius, circle_y - radius,
+                      circle_x + radius, circle_y + radius),
+                     outline=(0, 0, 0))
+
+    if return_pil:
+        return image
+    else:
+        # Convert the image to a NumPy array
+        image_array = np.array(image)
+        return image_array

@@ -11,16 +11,6 @@ def is_prime(num):
 
     Returns:
         bool: True if the number is prime, False otherwise.
-
-    Examples:
-        >>> is_prime(5)
-        True
-
-        >>> is_prime(5.0)
-        True
-
-        >>> is_prime(10)
-        False
     """
     is_integer = isinstance(num, int) or (isinstance(num, float) and num.is_integer())
 
@@ -43,19 +33,6 @@ def is_prime_power(num):
 
     Returns:
         bool: True if the number is a prime power, False otherwise.
-
-    Examples:
-        >>> is_prime_power(8)
-        True
-
-        >>> is_prime_power(8.0)
-        True
-
-        >>> is_prime_power(15)
-        False
-
-        >>> is_prime_power(17)
-        True
     """
     is_integer = isinstance(num, int) or (isinstance(num, float) and num.is_integer())
 
@@ -78,7 +55,7 @@ def compute_incidence_matrix(order):
         order (int): The order of the finite projective plane.
 
     Returns:
-        np.ndarray: The computed incidence matrix. The rows correspond to lines and the columns correspond to points.
+        np.ndarray: The computed incidence matrix.  The rows correspond to lines and the columns correspond to points.
 
     Raises:
         ValueError: If the argument 'order' is not a prime power.
