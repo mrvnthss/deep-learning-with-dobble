@@ -6,7 +6,7 @@ def is_prime(num):
     """
     Check if a number is prime.
 
-    Args:
+    Params:
         num (float): The number to be checked.
 
     Returns:
@@ -18,7 +18,7 @@ def is_prime(num):
         return False
 
     # Check for non-trivial factors
-    for i in range(2, int(num ** 0.5) + 1):
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
     return True
@@ -28,7 +28,7 @@ def is_prime_power(num):
     """
     Check if a number is a prime power.
 
-    Args:
+    Params:
         num (float): The number to be checked.
 
     Returns:
@@ -41,7 +41,7 @@ def is_prime_power(num):
 
     # Compute the i-th root of num and check if it's prime
     for i in range(1, int(log2(num)) + 1):
-        root = num ** (1 / i)
+        root = num**(1 / i)
         if root.is_integer() and is_prime(root):
             return True
     return False
@@ -51,7 +51,7 @@ def compute_incidence_matrix(order):
     """
     Compute the incidence matrix corresponding to a finite projective plane of the specified order.
 
-    Args:
+    Params:
         order (int): The order of the finite projective plane.
 
     Returns:
@@ -74,7 +74,7 @@ def compute_incidence_matrix(order):
         raise ValueError("The 'order' argument must be a prime power.")
 
     # Number of points/lines of a finite projective plane of order n is given by n^2 + n + 1
-    size = order ** 2 + order + 1
+    size = order**2 + order + 1
 
     # Preallocate incidence matrix, where rows correspond to lines and columns correspond to points
     incidence_matrix = np.zeros((size, size), dtype=bool)

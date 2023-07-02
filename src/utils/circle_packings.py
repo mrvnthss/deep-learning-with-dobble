@@ -1,11 +1,12 @@
 import numpy as np
 import os
+from src.data.dobble_cards import create_empty_card, draw_circle
 
 
 def read_coordinates_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path):
     """Read the coordinates of the specified circle packing from a text file.
 
-    Args:
+    Params:
         num_circles (int): The number of circles in the circle packing.
         packing_type (str): The type of circle packing.  Must be one of the keys in the 'packing_types' dictionary.
         packing_types_dict (dict[str, tuple[function, str]]): A dictionary mapping packing types to their
@@ -38,7 +39,7 @@ def read_coordinates_from_file(num_circles, packing_type, packing_types_dict, co
 def read_radius_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path):
     """Read the radius of the largest circle of the specified circle packing from a text file.
 
-    Args:
+    Params:
         num_circles (int): The number of circles in the circle packing.
         packing_type (str): The type of circle packing.  Must be one of the keys in the 'packing_types_dict' dictionary.
         packing_types_dict (dict[str, tuple[function, str]]): A dictionary mapping packing types to their
@@ -74,7 +75,7 @@ def read_radius_from_file(num_circles, packing_type, packing_types_dict, coords_
 def compute_radii(largest_radius, num_circles, packing_type, packing_types_dict):
     """Compute the radii of circles in a circle packing.
 
-    Args:
+    Params:
         largest_radius (float): The radius of the largest circle in the circle packing.
         num_circles (int): The total number of circles in the circle packing.
         packing_type (str): The type of circle packing.  Must be one of the keys in the 'packing_types_dict' dictionary.
@@ -114,7 +115,7 @@ def convert_coords_to_pixels(rel_coords, image_size):
     where the origin (0, 0) corresponds to the center of the image and the values (-1, -1) and (1, 1)
     correspond to the lower left and upper right corner of the image, respectively.
 
-    Args:
+    Params:
         rel_coords (np.ndarray or tuple): Relative coordinates in the range of [-1, 1] in the form (x, y).
         image_size (int): Size of the square image.
 
@@ -148,11 +149,11 @@ def convert_coords_to_pixels(rel_coords, image_size):
     return tuple(coords)
 
 
-def convert_radius_to_image_size_in_pixels(rel_radius, bg_size):
+def convert_radius_to_pixels(rel_radius, bg_size):
     """
     Convert a relative radius from 0 to 1 to image size in pixels based on the size of a square image (background).
 
-    Args:
+    Params:
         rel_radius (float): Relative radius in the range of [0, 1].
         bg_size (int): Size of the square image in pixels that serves as background.
 
@@ -163,7 +164,7 @@ def convert_radius_to_image_size_in_pixels(rel_radius, bg_size):
         ValueError: If the relative radius is outside the valid range of [0, 1].
 
     Example:
-        >>> convert_radius_to_image_size_in_pixels(0.5, 512)
+        >>> convert_radius_to_pixels(0.5, 512)
         256
     """
     if rel_radius < 0 or rel_radius > 1:
@@ -172,3 +173,47 @@ def convert_radius_to_image_size_in_pixels(rel_radius, bg_size):
     image_size = int(rel_radius * bg_size)
 
     return image_size
+
+
+def visualize_packing(num_circles, packing_type, packing_types_dict, card_size, coords_dir_path,
+                      filled=False, fill_color=0, return_pil=True):
+    """
+    Visualize a circle packing on an empty Dobble card based on the given parameters (i.e., type of packing and
+        number of circles).
+
+    Params:
+        num_circles (int): The number of circles in the circle packing.
+        packing_type (str): The type of circle packing.
+        packing_types_dict (dict[str, tuple[function, str]]): A dictionary mapping packing types to their
+            radii functions.
+        card_size (int): The size of each card in pixels.
+        coords_dir_path (str): The path to the directory containing the coordinates files.
+        filled (bool): Whether the circles should be filled (True) or just have outlines (False).  Defaults to False.
+        fill_color (tuple): The fill color of the circles in RGB format. Used when 'filled' is True.  Defaults to 0.
+        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+
+    Returns:
+        PIL.Image.Image or np.ndarray: The card image with the packing visualized.
+    """
+    # Create empty card as PIL image
+    packing = create_empty_card(card_size)
+
+    # Read relative coordinates from file
+    relative_coordinates = read_coordinates_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path)
+
+    # Read largest radius from file and compute remaining radii
+    largest_radius = read_radius_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path)
+    relative_radii = compute_radii(largest_radius, num_circles, packing_type, packing_types_dict)
+
+    # Draw circles on card
+    for circle in range(num_circles):
+        center = convert_coords_to_pixels(relative_coordinates[circle], card_size)
+        diameter = convert_radius_to_pixels(relative_radii[circle], card_size)
+        packing = draw_circle(packing, center, diameter, filled, fill_color)
+
+    if return_pil:
+        return packing
+    else:
+        # Convert the image to a NumPy array
+        packing_array = np.array(packing)
+        return packing_array
