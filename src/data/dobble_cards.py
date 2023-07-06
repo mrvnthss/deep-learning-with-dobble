@@ -8,8 +8,7 @@ import src.utils.circle_packings as cp
 
 
 def create_empty_card(image_size, return_pil=True):
-    """
-    Create a square image of a white circle against a transparent background.
+    """Create a square image of a white circle against a transparent background.
 
     Params:
         image_size (int): The size of the square image in pixels.
@@ -43,8 +42,7 @@ def create_empty_card(image_size, return_pil=True):
 
 
 def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=True):
-    """
-    Draw a circle on the given PIL image.
+    """Draw a circle on the given PIL image.
 
     Params:
         image (PIL.Image.Image): The image on which to draw the circle.
@@ -66,14 +64,14 @@ def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=
 
     if filled:
         # Draw a filled circle
-        draw.ellipse((circle_x - radius, circle_y - radius,
-                      circle_x + radius, circle_y + radius),
-                     fill=fill_color)
+        draw.ellipse(
+            (circle_x - radius, circle_y - radius, circle_x + radius, circle_y + radius), fill=fill_color
+        )
     else:
         # Draw the outline of the circle
-        draw.ellipse((circle_x - radius, circle_y - radius,
-                      circle_x + radius, circle_y + radius),
-                     outline=(0, 0, 0))
+        draw.ellipse(
+            (circle_x - radius, circle_y - radius, circle_x + radius, circle_y + radius), outline=(0, 0, 0)
+        )
 
     if return_pil:
         return image
@@ -84,8 +82,7 @@ def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=
 
 
 def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
-    """
-    Load an emoji from the specified set of emojis.
+    """Load an emoji from the specified set of emojis.
 
     Params:
         emoji_set (str): The name of the set of emojis (e.g., 'classic-dobble').
@@ -121,8 +118,7 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
 
 
 def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, return_pil=True):
-    """
-    Place an emoji on the given image at the specified coordinates with the specified size.
+    """Place an emoji on the given image at the specified coordinates with the specified size.
 
     Params:
         image (PIL.Image.Image): The original image as a PIL Image.
@@ -168,8 +164,7 @@ def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, ret
 
 def create_dobble_card(card_size, packing_type, packing_types_dict, coords_dir_path,
                        emoji_set, emoji_list, emojis_dir_path, outline_only=False, return_pil=True):
-    """
-    Create a Dobble card by placing emojis according to the given parameters.
+    """Create a Dobble card by placing emojis according to the given parameters.
 
     Params:
         card_size (int): The size of the card in pixels.
@@ -191,7 +186,9 @@ def create_dobble_card(card_size, packing_type, packing_types_dict, coords_dir_p
     num_emojis = len(emoji_list)
 
     # Read relative coordinates from file
-    relative_coordinates = cp.read_coordinates_from_file(num_emojis, packing_type, packing_types_dict, coords_dir_path)
+    relative_coordinates = cp.read_coordinates_from_file(
+        num_emojis, packing_type, packing_types_dict, coords_dir_path
+        )
 
     # Read largest radius from file and compute remaining radii
     largest_radius = cp.read_radius_from_file(num_emojis, packing_type, packing_types_dict, coords_dir_path)

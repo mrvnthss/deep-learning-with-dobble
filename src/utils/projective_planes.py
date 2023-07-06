@@ -3,8 +3,7 @@ from math import log2
 
 
 def is_prime(num):
-    """
-    Check if a number is prime.
+    """Check if a number is prime.
 
     Params:
         num (float): The number to be checked.
@@ -25,8 +24,7 @@ def is_prime(num):
 
 
 def is_prime_power(num):
-    """
-    Check if a number is a prime power.
+    """Check if a number is a prime power.
 
     Params:
         num (float): The number to be checked.
@@ -48,8 +46,7 @@ def is_prime_power(num):
 
 
 def compute_incidence_matrix(order):
-    """
-    Compute the incidence matrix corresponding to a finite projective plane of the specified order.
+    """Compute the incidence matrix of a finite projective plane with specified order.
 
     Params:
         order (int): The order of the finite projective plane.

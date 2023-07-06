@@ -107,8 +107,7 @@ def compute_radii(largest_radius, num_circles, packing_type, packing_types_dict)
 
 
 def convert_coords_to_pixels(rel_coords, image_size):
-    """
-    Convert relative coordinates to pixel values based on the size of a square image.
+    """Convert relative coordinates to pixel values based on the size of a square image.
 
     The function takes relative coordinates in the range of [-1, 1] and converts them to pixel values
     based on the size of a square image.  The relative coordinates are assumed to be in a normalized form,
@@ -150,8 +149,7 @@ def convert_coords_to_pixels(rel_coords, image_size):
 
 
 def convert_radius_to_pixels(rel_radius, bg_size):
-    """
-    Convert a relative radius from 0 to 1 to image size in pixels based on the size of a square image (background).
+    """Convert a relative radius to pixels based on the size of a square image (background).
 
     Params:
         rel_radius (float): Relative radius in the range of [0, 1].
@@ -177,9 +175,7 @@ def convert_radius_to_pixels(rel_radius, bg_size):
 
 def visualize_packing(num_circles, packing_type, packing_types_dict, card_size, coords_dir_path,
                       filled=False, fill_color=0, return_pil=True):
-    """
-    Visualize a circle packing on an empty Dobble card based on the given parameters (i.e., type of packing and
-        number of circles).
+    """Visualize a circle packing on an empty Dobble card.
 
     Params:
         num_circles (int): The number of circles in the circle packing.
@@ -199,7 +195,9 @@ def visualize_packing(num_circles, packing_type, packing_types_dict, card_size, 
     packing = create_empty_card(card_size)
 
     # Read relative coordinates from file
-    relative_coordinates = read_coordinates_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path)
+    relative_coordinates = read_coordinates_from_file(
+        num_circles, packing_type, packing_types_dict, coords_dir_path
+        )
 
     # Read largest radius from file and compute remaining radii
     largest_radius = read_radius_from_file(num_circles, packing_type, packing_types_dict, coords_dir_path)
