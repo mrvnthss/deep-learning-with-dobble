@@ -12,13 +12,13 @@ def create_empty_card(image_size, return_pil=True):
 
     Params:
         image_size (int): The size of the square image in pixels.
-        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
         PIL.Image.Image or np.ndarray: The generated image of a white circle against a transparent background.
     """
     # Create a new transparent image with RGBA mode
-    image = Image.new("RGBA", (image_size, image_size), (0, 0, 0, 0))
+    image = Image.new('RGBA', (image_size, image_size), (0, 0, 0, 0))
 
     # Create a new draw object
     draw = ImageDraw.Draw(image)
@@ -48,9 +48,10 @@ def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=
         image (PIL.Image.Image): The image on which to draw the circle.
         center (tuple): The center coordinates of the circle in the form (x, y).
         diameter (int): The diameter of the circle.
-        filled (bool): Whether the circle should be filled (True) or just have an outline (False).  Defaults to False.
-        fill_color (tuple): The fill color of the circle in RGB format.  Used when 'filled' is True.  Defaults to 0.
-        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+        filled (bool): Whether the circle should be filled ('True') or just have an outline ('False').
+            Defaults to 'False'.
+        fill_color (tuple): The fill color of the circle in RGB format. Used when 'filled' is 'True'.  Defaults to '0'.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
         PIL.Image.Image or np.ndarray: The modified image with the circle drawn onto it.
@@ -88,7 +89,7 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
         emoji_set (str): The name of the set of emojis (e.g., 'classic-dobble').
         emoji_name (str): The name of the emoji to load.
         emojis_dir_path (str): The path to the directory containing the emoji images.
-        outline_only (bool): Whether to load the outline-only version of the emoji.  Defaults to False.
+        outline_only (bool): Whether to load the outline-only version of the emoji.  Defaults to 'False'.
 
     Returns:
         PIL.Image.Image: The loaded emoji image in RGBA mode.
@@ -114,7 +115,7 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
 
         return emoji_image
     else:
-        raise ValueError(f"Failed to load emoji: {filepath} is not a valid PNG file.")
+        raise ValueError(f'Failed to load emoji: {filepath} is not a valid PNG file.')
 
 
 def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, return_pil=True):
@@ -124,15 +125,15 @@ def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, ret
         image (PIL.Image.Image): The original image as a PIL Image.
         emoji_image (PIL.Image.Image): The emoji as a PIL Image.
         emoji_size (int): The desired size of the emoji in pixels when placed on the image.
-        center (tuple[int, int]): The center coordinates of the emoji in the form (x, y).
-        rotation_angle (float): The rotation angle in degrees. Defaults to None.
-        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False). Defaults to True.
+        center (tuple): The center coordinates of the emoji in the form (x, y).
+        rotation_angle (float): The rotation angle in degrees.  Defaults to 'None'.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
         PIL.Image.Image or np.ndarray:: The modified image with the emoji placed on it.
 
     Raises:
-        ValueError: If the rotation_angle is provided but is outside the valid range of [0, 360).
+        ValueError: If the 'rotation_angle' is provided but is outside the valid range of [0, 360).
     """
     x_center, y_center = center
 
@@ -146,7 +147,7 @@ def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, ret
     # Check if a rotation angle was specified and validate it
     if rotation_angle is not None:
         if rotation_angle < 0 or rotation_angle >= 360:
-            raise ValueError("Invalid rotation angle: must be in the range [0, 360).")
+            raise ValueError('Invalid rotation angle: must be in the range [0, 360).')
 
         # Rotate the image if the rotation angle is valid
         emoji_image = emoji_image.rotate(rotation_angle)
@@ -175,8 +176,8 @@ def create_dobble_card(card_size, packing_type, packing_types_dict, coords_dir_p
         emoji_set (str): The name of the set of emojis.
         emoji_list (list): The list of names of the emojis to be placed on the card.
         emojis_dir_path (str): The path to the directory containing the emoji images.
-        outline_only (bool): Whether to load the outline-only version of the emoji.  Defaults to False.
-        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+        outline_only (bool): Whether to load the outline-only version of the emoji.  Defaults to 'False'.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
         PIL.Image.Image or np.ndarray:: The generated Dobble card.

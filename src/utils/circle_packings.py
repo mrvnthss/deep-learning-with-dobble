@@ -97,7 +97,7 @@ def compute_radii(largest_radius, num_circles, packing_type, packing_types_dict)
 
     # If the function 'fctn' is decreasing, we reverse the order of 'fctn_vals' so that the values are
     # listed in increasing order
-    if monotonicity == "decreasing":
+    if monotonicity == 'decreasing':
         fctn_vals.reverse()
 
     ratio = largest_radius / fctn_vals[-1]
@@ -137,7 +137,7 @@ def convert_coords_to_pixels(rel_coords, image_size):
 
     # Check if the relative coordinates are within the range of [-1, 1]
     if np.any((rel_coords < -1) | (rel_coords > 1)):
-        raise ValueError("Relative coordinates must be in the range of [-1, 1].")
+        raise ValueError('Relative coordinates must be in the range of [-1, 1].')
 
     # Shift coordinates from [-1, 1] to [0, 1]
     rel_coords = rel_coords / 2 + 0.5
@@ -166,7 +166,7 @@ def convert_radius_to_pixels(rel_radius, bg_size):
         256
     """
     if rel_radius < 0 or rel_radius > 1:
-        raise ValueError("Relative radius must be in the range of [0, 1].")
+        raise ValueError('Relative radius must be in the range of [0, 1].')
 
     image_size = int(rel_radius * bg_size)
 
@@ -184,9 +184,10 @@ def visualize_packing(num_circles, packing_type, packing_types_dict, card_size, 
             radii functions.
         card_size (int): The size of each card in pixels.
         coords_dir_path (str): The path to the directory containing the coordinates files.
-        filled (bool): Whether the circles should be filled (True) or just have outlines (False).  Defaults to False.
-        fill_color (tuple): The fill color of the circles in RGB format. Used when 'filled' is True.  Defaults to 0.
-        return_pil (bool): Whether to return a PIL Image (True) or a NumPy array (False).  Defaults to True.
+        filled (bool): Whether the circles should be filled ('True') or just have outlines ('False').
+            Defaults to 'False'.
+        fill_color (tuple): The fill color of the circles in RGB format. Used when 'filled' is 'True'.  Defaults to '0'.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
         PIL.Image.Image or np.ndarray: The card image with the packing visualized.

@@ -9,7 +9,7 @@ def is_prime(num):
         num (float): The number to be checked.
 
     Returns:
-        bool: True if the number is prime, False otherwise.
+        bool: 'True' if the number is prime, 'False' otherwise.
     """
     is_integer = isinstance(num, int) or (isinstance(num, float) and num.is_integer())
 
@@ -30,7 +30,7 @@ def is_prime_power(num):
         num (float): The number to be checked.
 
     Returns:
-        bool: True if the number is a prime power, False otherwise.
+        bool: 'True' if the number is a prime power, 'False' otherwise.
     """
     is_integer = isinstance(num, int) or (isinstance(num, float) and num.is_integer())
 
@@ -39,7 +39,7 @@ def is_prime_power(num):
 
     # Compute the i-th root of num and check if it's prime
     for i in range(1, int(log2(num)) + 1):
-        root = num**(1 / i)
+        root = num ** (1/i)
         if root.is_integer() and is_prime(root):
             return True
     return False
