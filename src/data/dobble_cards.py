@@ -163,8 +163,9 @@ def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, ret
         return image_array
 
 
-def create_dobble_card(card_size, packing_type, packing_types_dict, coords_dir_path,
-                       emoji_set, emoji_list, emojis_dir_path, outline_only=False, return_pil=True):
+def create_dobble_card(
+        card_size, packing_type, packing_types_dict, coords_dir_path, emoji_set, emoji_list, emojis_dir_path,
+        outline_only=False, return_pil=True):
     """Create a Dobble card by placing emojis according to the given parameters.
 
     Params:

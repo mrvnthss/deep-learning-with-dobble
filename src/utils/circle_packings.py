@@ -173,8 +173,9 @@ def convert_radius_to_pixels(rel_radius, bg_size):
     return image_size
 
 
-def visualize_packing(num_circles, packing_type, packing_types_dict, card_size, coords_dir_path,
-                      filled=False, fill_color=0, return_pil=True):
+def visualize_packing(
+        num_circles, packing_type, packing_types_dict, card_size, coords_dir_path,
+        filled=False, fill_color=0, return_pil=True):
     """Visualize a circle packing on an empty Dobble card.
 
     Params:
