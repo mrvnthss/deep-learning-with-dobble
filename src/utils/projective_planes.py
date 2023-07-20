@@ -1,5 +1,6 @@
-import numpy as np
 from math import log2
+
+import numpy as np
 
 
 def is_prime(num):
@@ -52,7 +53,7 @@ def compute_incidence_matrix(order):
         order (int): The order of the finite projective plane.
 
     Returns:
-        np.ndarray: The computed incidence matrix.  The rows correspond to lines and the columns correspond to points.
+        np.ndarray: The computed incidence matrix.  Rows correspond to lines and columns correspond to points.
 
     Raises:
         ValueError: If the argument 'order' is not a prime power.

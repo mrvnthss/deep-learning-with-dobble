@@ -1,21 +1,21 @@
-import numpy as np
-from PIL import Image, ImageDraw
-
 import os
 import random
 
-import src.utils.circle_packings as cp
+import numpy as np
+from PIL import Image, ImageDraw
+
+import src.utils.circle_packing as cp
 
 
 def create_empty_card(image_size, return_pil=True):
-    """Create a square image of a white circle against a transparent background.
+    """Create a square image of a white disk against a transparent background.
 
     Params:
         image_size (int): The size of the square image in pixels.
         return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
-        PIL.Image.Image or np.ndarray: The generated image of a white circle against a transparent background.
+        PIL.Image.Image or np.ndarray: The generated image of a white disk against a transparent background.
     """
     # Create a new transparent image with RGBA mode
     image = Image.new('RGBA', (image_size, image_size), (0, 0, 0, 0))
@@ -23,56 +23,15 @@ def create_empty_card(image_size, return_pil=True):
     # Create a new draw object
     draw = ImageDraw.Draw(image)
 
-    # Calculate the coordinates of the circle to maximize its size within the square image
-    circle_x = image_size // 2
-    circle_y = image_size // 2
+    # Calculate the coordinates of the disk to maximize its size within the square image
+    disk_x = image_size // 2
+    disk_y = image_size // 2
     radius = image_size // 2
 
-    # Draw a white circle on the image
-    draw.ellipse((circle_x - radius, circle_y - radius,
-                  circle_x + radius, circle_y + radius),
+    # Draw a white disk on the image
+    draw.ellipse((disk_x - radius, disk_y - radius,
+                  disk_x + radius, disk_y + radius),
                  fill=(255, 255, 255, 255))
-
-    if return_pil:
-        return image
-    else:
-        # Convert the image to a numpy array
-        image_array = np.array(image)
-        return image_array
-
-
-def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=True):
-    """Draw a circle on the given PIL image.
-
-    Params:
-        image (PIL.Image.Image): The image on which to draw the circle.
-        center (tuple): The center coordinates of the circle in the form (x, y).
-        diameter (int): The diameter of the circle.
-        filled (bool): Whether the circle should be filled ('True') or just have an outline ('False').
-            Defaults to 'False'.
-        fill_color (tuple): The fill color of the circle in RGB format. Used when 'filled' is 'True'.  Defaults to '0'.
-        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
-
-    Returns:
-        PIL.Image.Image or np.ndarray: The modified image with the circle drawn onto it.
-    """
-    # Create a new draw object
-    draw = ImageDraw.Draw(image)
-
-    # Get x- and y-coordinates of the circle and compute radius
-    circle_x, circle_y = center
-    radius = diameter // 2
-
-    if filled:
-        # Draw a filled circle
-        draw.ellipse(
-            (circle_x - radius, circle_y - radius, circle_x + radius, circle_y + radius), fill=fill_color
-        )
-    else:
-        # Draw the outline of the circle
-        draw.ellipse(
-            (circle_x - radius, circle_y - radius, circle_x + radius, circle_y + radius), outline=(0, 0, 0)
-        )
 
     if return_pil:
         return image
@@ -82,7 +41,7 @@ def draw_circle(image, center, diameter, filled=False, fill_color=0, return_pil=
         return image_array
 
 
-def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
+def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False, return_pil=True):
     """Load an emoji from the specified set of emojis.
 
     Params:
@@ -90,9 +49,10 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
         emoji_name (str): The name of the emoji to load.
         emojis_dir_path (str): The path to the directory containing the emoji images.
         outline_only (bool): Whether to load the outline-only version of the emoji.  Defaults to 'False'.
+        return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
-        PIL.Image.Image: The loaded emoji image in RGBA mode.
+        PIL.Image.Image or np.ndarray: The loaded emoji image.
 
     Raises:
         ValueError: If the specified emoji file is not found or does not have a valid PNG extension.
@@ -102,7 +62,6 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
         which_type = 'outline'
     else:
         which_type = 'color'
-
     filepath = os.path.join(emojis_dir_path, emoji_set, which_type, emoji_name + '.png')
 
     # Check if the file exists and if it has the correct extension
@@ -113,7 +72,12 @@ def load_emoji(emoji_set, emoji_name, emojis_dir_path, outline_only=False):
         if emoji_image.mode != 'RGBA':
             emoji_image = emoji_image.convert('RGBA')
 
-        return emoji_image
+        if return_pil:
+            return emoji_image
+        else:
+            # Convert the image to a NumPy array
+            emoji_image_array = np.array(emoji_image)
+            return emoji_image_array
     else:
         raise ValueError(f'Failed to load emoji: {filepath} is not a valid PNG file.')
 
@@ -130,7 +94,7 @@ def place_emoji(image, emoji_image, emoji_size, center, rotation_angle=None, ret
         return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
-        PIL.Image.Image or np.ndarray:: The modified image with the emoji placed on it.
+        PIL.Image.Image or np.ndarray: The modified image with the emoji placed on it.
 
     Raises:
         ValueError: If the 'rotation_angle' is provided but is outside the valid range of [0, 360).
@@ -181,7 +145,7 @@ def create_dobble_card(
         return_pil (bool): Whether to return a PIL Image ('True') or a NumPy array ('False').  Defaults to 'True'.
 
     Returns:
-        PIL.Image.Image or np.ndarray:: The generated Dobble card.
+        PIL.Image.Image or np.ndarray: The generated Dobble card.
     """
     # Create empty Dobble card
     dobble_card = create_empty_card(card_size)
