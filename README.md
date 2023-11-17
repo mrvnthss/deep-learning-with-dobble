@@ -1,6 +1,19 @@
 # Deep Learning with Dobble
 
-Welcome to **Deep Learning with Dobble**! This README aims to provide the bare minimum of documentation necessary to successfully execute the notebook *deep-learning-with-dobble.ipynb* on your local machine.
+![Static Badge](https://img.shields.io/badge/Python-3.11-python?labelColor=ffde57&color=4584b6)
+![Static Badge](https://img.shields.io/badge/PyTorch-2.0.1-torch?labelColor=f3f4f7&color=dc583a)
+![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)
+
+Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that was part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer semester 2023.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Languages & Tools](#languages--tools)
+- [License](#license)
+
+## Overview
 
 ## Getting Started
 
@@ -22,9 +35,9 @@ git clone https://github.com/mrvnthss/deep-learning-with-dobble
 cd deep-learning-with-dobble
 ```
 
-### Setting up a Virtual Environment (Optional but Recommended)
+### Set up a Virtual Environment (Optional but Recommended)
 
-Before you begin, make sure that `pip` is installed on your system. `pip` is a package manager for Python, and it's usually included by default when you install Python. To ensure that `pip` is installed, run the following command:
+Before you begin, make sure that `pip` is installed on your system. `pip` is a package manager for Python, and it's usually included by default when you install Python. To ensure that `pip` is installed, run the following commands:
 
 ```
 python3 -m pip install --user --upgrade pip
@@ -40,31 +53,47 @@ python3 -m pip install --user virtualenv
 Create and activate a virtual environment:
 
 ```
-python3 -m venv env
-source env/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-The second argument of the first command (`env`) is the location to create the virtual environment. You can change this to something you prefer.
+### Install Dependencies
 
-### Install dependencies
-
-Install the required Python packages specified in the `requirements.txt` file by running:
+All the dependencies that are required to execute the notebooks in this repository are listed in the [requirements.txt](requirements.txt) file. Installing these is a breeze. Simply issue the following command after you have set up your virtual environment:
 
 ```
 python3 -m pip install -r requirements.txt
 ```
 
-## Starting JupyterLab
+### Start JupyterLab
 
-To start **JupyterLab**, simply run the following command inside your activated virtual environment:
+To start [**JupyterLab**](https://jupyter.org), simply run the following command inside your activated virtual environment:
 
 ```
 juypter lab
 ```
 
-All you have to do now is navigate to the `notebooks/` directory and open the `deep-learning-with-dobble.ipynb` notebook. The notebook can be run from top to bottom in a single go. All paths are set relative to the notebook's directory and all of the necessary data is already included in the repository that you cloned. The only thing that's not included in the repository right away is PyTorch checkpoints since these files are too large to be hosted on GitHub. Instead, these files are downloaded at the very beginning of the notebook and moved into the appropriate subdirectories. All of this happens automatically, without you having to do anything.
+That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) directory and open one of the notebooks. The [deep-learning-with-dobble.ipynb](notebooks/deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring this one first!
 
-At the end of the notebook, we have commented out the commands to train the different models so that the notebook executes quickly. Of course, these commands can be executed by you at any time by simply uncommenting them and re-running the respective cells of the notebook.
+## Languages & Tools
+
+<p align="left">
+  <a href="https://www.python.org" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
+  </a>
+  &nbsp;
+  <a href="https://pytorch.org/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="40" height="40"/>
+  </a>
+  &nbsp;
+  <a href="https://opencv.org/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/>
+  </a>
+  &nbsp;
+  <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>
+  </a>
+</p>
 
 ## License
 
