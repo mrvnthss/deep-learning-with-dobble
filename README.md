@@ -86,6 +86,10 @@ That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) dir
     <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="40" height="40"/>
   </a>
   &nbsp;
+  <a href="https://numpy.org" target="_blank" rel="noreferrer">
+    <img src="https://github.com/numpy/numpy/blob/main/branding/logo/logomark/numpylogoicon.png?raw=true" alt="numpy" width="40" height="40"/>
+  </a>
+  &nbsp;
   <a href="https://opencv.org/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/>
   </a>
