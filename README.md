@@ -4,16 +4,70 @@
 ![Static Badge](https://img.shields.io/badge/PyTorch-2.0.1-torch?labelColor=f3f4f7&color=dc583a)
 ![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)
 
-Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that was part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer semester 2023.
+Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer term 2023.
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [The Card Game *Dobble*](#the-card-game-dobble)
+- [Generating *Dobble* Decks](#a-dobble-algorithm)
+- [A Deep Learning Pipeline](#a-deep-learning-pipeline)
+- [Comparing ResNet Models](#comparing-resnet-models)
 - [Getting Started](#getting-started)
-- [Languages & Tools](#languages--tools)
+- [Languages & Tools](#languages-and-tools)
+- [References](#references)
+- [Acknowledgments](#acknowledgments)
 - [License](#license)
 
 ## Overview
+
+## The Card Game *Dobble*
+
+## Generating *Dobble* Decks
+
+<div align="center">
+    <img src="reports/figures/emojis/classic-dobble-emojis.png" alt="classic-dobble-emojis" width="600">
+    <p>The emojis used to create our own deck of <em>Dobble</em> playing cards.</p>
+</div>
+
+<div align="center">
+    <img src="reports/figures/emojis/downsized-emoji.png" alt="downsized-emoji" width="400">
+    <p>Emojis that extend into the corners are automatically downsized.</p>
+</div>
+
+<div align="center">
+    <img src="reports/figures/emojis/enlarged-emoji.png" alt="downsized-emoji" width="400">
+    <p>Emojis that are too small are automatically enlarged.</p>
+</div>
+
+<div align="center">
+    <img src="reports/figures/emojis/resized-classic-dobble-emojis.png" alt="resized-classic-dobble-emojis" width="600">
+    <p>Resized emojijs.</p>
+</div>
+
+<div align="center">
+    <img src="reports/figures/cards/classic-dobble-deck.png" alt="classic-dobble-deck" width="800">
+    <p>The full set of playing cards used in this project.</p>
+</div>
+
+## A Deep Learning Pipeline
+
+<div align="center">
+    <img src="reports/figures/cards/image-augmentation.png" alt="image-augmentation" width="800">
+    <p>Using image augmentation to increase the variability of our dataset.</p>
+</div>
+
+<div align="center">
+    <img src="reports/figures/results/rex-schedule.png" alt="rex-schedule" width="800">
+    <p>The REX learning rate schedule.</p>
+</div>
+
+## Comparing ResNet Models
+
+<div align="center">
+    <img src="reports/figures/results/resnet-comparison.png" alt="resnet-comparison" width="800">
+    <p>Training results for ResNet models of different depths.</p>
+</div>
 
 ## Getting Started
 
@@ -67,7 +121,7 @@ python3 -m pip install -r requirements.txt
 
 ### Start JupyterLab
 
-To start [**JupyterLab**](https://jupyter.org), simply run the following command inside your activated virtual environment:
+To start [JupyterLab](https://jupyter.org), simply run the following command inside your activated virtual environment:
 
 ```
 juypter lab
@@ -75,7 +129,7 @@ juypter lab
 
 That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) directory and open one of the notebooks. The [deep-learning-with-dobble.ipynb](notebooks/deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring this one first!
 
-## Languages & Tools
+## Languages and Tools
 
 <p align="left">
   <a href="https://www.python.org" target="_blank" rel="noreferrer">
@@ -98,6 +152,10 @@ That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) dir
     <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>
   </a>
 </p>
+
+## References
+
+## Acknowledgments
 
 ## License
 
