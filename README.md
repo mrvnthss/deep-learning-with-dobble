@@ -1,8 +1,8 @@
 # Deep Learning with Dobble
 
-![Static Badge](https://img.shields.io/badge/Python-3.11-python?labelColor=ffde57&color=4584b6)
-![Static Badge](https://img.shields.io/badge/PyTorch-2.0.1-torch?labelColor=f3f4f7&color=dc583a)
-![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-EE4C2C.svg?style=flat&logo=pytorch)](https://pytorch.org)
+[![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)](https://www.gnu.org/licenses/gpl-3.0.html.en)
 
 Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer term 2023.
 
