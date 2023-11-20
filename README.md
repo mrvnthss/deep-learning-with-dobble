@@ -11,7 +11,7 @@ Welcome to **Deep Learning with Dobble**! This repository contains the results o
 
 - [Overview](#overview)
 - [The Card Game *Dobble*](#the-card-game-dobble)
-- [Generating *Dobble* Decks](#a-dobble-algorithm)
+- [Generating *Dobble* Decks](#generating-dobble-decks)
 - [A Deep Learning Pipeline](#a-deep-learning-pipeline)
 - [Comparing ResNet Models](#comparing-resnet-models)
 - [Getting Started](#getting-started)
