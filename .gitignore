@@ -269,3 +269,6 @@ Temporary Items
 
 # PyTorch checkpoints
 *.pt
+
+# Permission for use of images from brettspiel-empfehlungen.de
+reports/other/Genehmigung Brettspiel-Empfehlungen.pdf
