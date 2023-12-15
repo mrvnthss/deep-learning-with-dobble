@@ -105,12 +105,20 @@ With the emojis and their placement on the individual cards all figured out, we 
 
 ## A Deep Learning Pipeline
 
-At this point in the project, we were essentially able to create our own dataset to use for training purposes. The full dataset, created using our imitation of the classic *Dobble* deck, consisted of $(57 * 56) / 2 = 1596$ pairs of cards, which we divided into a training set, a validation set, and a test set (using a $70 / 15 / 15$ split).
+At this point in the project, we were essentially able to create our own dataset to use for training purposes. The full dataset, created using our imitation of the classic *Dobble* deck, consisted of $(57 * 56) / 2 = 1596$ pairs of cards, which we divided into a training set, a validation set, and a test set (using a $70 / 15 / 15$ split). Thus, our training set essentially consisted of $1117$ pairs of images of playing cards. However, we did not feed these image pairs directly into the network. Instead, in order to increase the variability of our training set, we ...
+
+- applied image augmentation techniques to both images of the individual playing cards,
+- randomly positioned the two cards in two of the four quadrants of a randomly colored square background,
+- and applied additional image augmentation techniques to this combined image of the two playing cards against a colored background.
+
+The image augmentation techniques we chose were intended to mimic the conditions a human being would face when playing the game (e.g., varying lighting conditions, different viewing angles, etc.).
 
 <div align="center">
     <img src="reports/figures/cards/image-augmentation.png" alt="image-augmentation" width="600">
     <p>Using image augmentation to increase the variability of our dataset.</p>
 </div>
+
+All of this was implemented in our custom `DobbleDataset` dataset class. Finally, we had the data we needed to train our models. All that remained was to set up a deep learning pipeline. To do this, we coded our own training, validation, and testing routines. We made sure to regularly save checkpoints during training, and we performed a simple sanity check before starting the training routines by overfitting models on a single batch of training data. This allowed us to get rid of any major bugs in advance. Additionally, we implemented the [REX learning rate scheduler](#rex) based on the `LRScheduler` class available in `torch.optim.lr_scheduler`. The decy factor used in this schedule is illustrated below.
 
 <div align="center">
     <img src="reports/figures/results/rex-schedule.png" alt="rex-schedule" width="700">
@@ -118,6 +126,8 @@ At this point in the project, we were essentially able to create our own dataset
 </div>
 
 ## Comparing ResNet Models
+
+To cap things off, we compared the performance of ResNet models of different depths. In hindsight, this was not very enlightening, as the smallest ResNet model already solved the task with perfect accuracy (evaluated on a test set the network had never seen before). The results we observed are also not surprising: the larger models required more epochs of training to produce meaningful results, because more parameters had to be fine-tuned to solve the task. In fact, 300 epochs of training was not enough to achieve (near) perfect accuracy for the two largest ResNet models.
 
 <div align="center">
     <img src="reports/figures/results/resnet-comparison.png" alt="resnet-comparison" width="700">
@@ -213,6 +223,8 @@ That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) dir
 </p>
 
 ## References
+
+- <a id='rex'></a> Chen, J., Wolfe, C., & Kyrillidis, A. (2022). REX: Revisiting Budgeted Training with an Improved Schedule. *Proceedings of Machine Learning and Systems, 4*, 64–76.
 
 - Collingridge, P. (2018, September 13). *Dobble*. petercollingridge.co.uk. https://www.petercollingridge.co.uk/blog/mathematics-toys-and-games/dobble/
 
