@@ -224,15 +224,15 @@ That's it, you're good to go! Simply open one of the notebooks. The [deep-learni
 
 ## References
 
-- <a id='rex'></a> Chen, J., Wolfe, C., & Kyrillidis, A. (2022). REX: Revisiting Budgeted Training with an Improved Schedule. *Proceedings of Machine Learning and Systems, 4*, 64–76.
+- <a id='rex'></a> Chen, J., Wolfe, C., & Kyrillidis, A. (2022). REX: Revisiting budgeted training with an improved schedule. *Proceedings of Machine Learning and Systems, 4*, 64–76.
 
 - Collingridge, P. (2018, September 13). *Dobble*. petercollingridge.co.uk. https://www.petercollingridge.co.uk/blog/mathematics-toys-and-games/dobble/
 
-- Dore, M. (2021, December 30). The Dobble Algorithm. *Medium*. https://mickydore.medium.com/the-dobble-algorithm-b9c9018afc52
+- Dore, M. (2021, December 30). The Dobble algorithm. *Medium*. https://mickydore.medium.com/the-dobble-algorithm-b9c9018afc52
 
 - Dore, M. (2021, December 29). The maths behind Dobble. *Medium*. https://mickydore.medium.com/dobble-theory-and-implementation-ff21ddbb5318
 
-- *Finite Projective Planes and the Math of Spot It!* (2023, March 29). Puzzlewocky. https://puzzlewocky.com/games/the-math-of-spot-it/
+- *Finite projective planes and the math of Spot It!* (2023, March 29). Puzzlewocky. https://puzzlewocky.com/games/the-math-of-spot-it/
 
 ## Acknowledgments
 
