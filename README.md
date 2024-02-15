@@ -1,5 +1,6 @@
 # Deep Learning with Dobble
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mrvnthss/deep-learning-with-dobble/blob/main/deep-learning-with-dobble.ipynb)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch_2.0.1-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
