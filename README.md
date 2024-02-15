@@ -181,7 +181,7 @@ source .venv/bin/activate
 All the dependencies that are required to execute the notebooks in this repository are listed in the [requirements.txt](requirements.txt) file. Installing these is a breeze. Simply issue the following command after you have set up your virtual environment:
 
 ```
-python3 -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Start JupyterLab
@@ -192,7 +192,7 @@ To start [JupyterLab](https://jupyter.org), simply run the following command ins
 juypter lab
 ```
 
-That's it, you're good to go! Simply navigate to the [notebooks/](notebooks) directory and open one of the notebooks. The [deep-learning-with-dobble.ipynb](notebooks/deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring this one first!
+That's it, you're good to go! Simply open one of the notebooks. The [deep-learning-with-dobble.ipynb](deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring this one first!
 
 ## Languages and Tools
 
