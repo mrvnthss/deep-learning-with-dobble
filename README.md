@@ -20,9 +20,9 @@ Welcome to **Deep Learning with Dobble**! This repository contains the results o
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
-## The Card Game *Dobble*
+## The Card Game Dobble
 
-[*Dobble*](https://www.dobblegame.com) is a popular card game that challenges players to spot matching symbols between pairs of cards. While there are different modes of play, the basic idea of the game remains the same: every two cards in a deck of playing cards have exactly one symbol in common, and players must identify that unique symbol as quickly as possible. A classic *Dobble* deck consists of 55 playing cards, with 8 different symbols placed on each card. The constraint that any two cards share one and only one symbol gives rise to a rich mathematical structure known as finite projective planes. There are several well-written articles on the web about this topic, some of which I have listed in the [References](#references) section of this README.
+[*Dobble*](https://www.dobblegame.com) is a popular card game that challenges players to spot matching symbols between pairs of cards. While there are different modes of play, the basic idea of the game remains the same: Every two cards in a deck of playing cards have exactly one symbol in common, and players must identify that unique symbol as quickly as possible. A classic *Dobble* deck consists of 55 playing cards, with 8 different symbols placed on each card. The constraint that any two cards share one and only one symbol gives rise to a rich mathematical structure known as finite projective planes. There are several well-written articles on the web about this topic, some of which I have listed in the [References](#references) section of this README.
 
 <div align="center">
     <img src="reports/other/dobble-brettspiel-empfehlungen.jpg" alt="card-game-dobble" width="700">
@@ -36,7 +36,7 @@ The goal of this project when Nina (a fellow student) and I started working on i
 
 In this README, I will walk you through the indidvidual steps we took to achieve these goals. If you're interested in running the Jupyter notebooks on your local machine, check out the [Getting Started](#getting-started) section.
 
-## Generating *Dobble* Decks
+## Generating Dobble Decks
 
 In order to create our own *Dobble* decks, we would need to go through the following steps:
 
