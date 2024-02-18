@@ -94,7 +94,7 @@ Below you can see the full set of emojis, automatically resized to take up as mu
 
 <div align="center">
     <img src="reports/figures/emojis/resized-classic-dobble-emojis.png" alt="resized-classic-dobble-emojis" width="600">
-    <p>Resized emojijs.</p>
+    <p>Resized emojis.</p>
 </div>
 
 With the emojis and their placement on the individual cards all figured out, we needed to implement an algorithm that would ultimately tell us which emoji to place on which card to create a valid deck of *Dobble* playing cards. Essentially, this comes down to computing the so-called *incidence matrix* of a finite projective plane of order $p^k$ for a prime number $p$. To read up on how this is done, I highly recommend [this article](https://mickydore.medium.com/the-dobble-algorithm-b9c9018afc52) by *Micky Dore*. Below is the full set of $57$ playing cards used in this project.
