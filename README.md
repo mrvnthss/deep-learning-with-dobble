@@ -1,4 +1,4 @@
-# Deep Learning with Dobble
+# Deep Learning with Dobble <a href="https://pkgs.rstudio.com/bookdown/"><img src="data/processed/classic-dobble/classic-dobble_021.png" align="right" height="138"/></a>
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mrvnthss/deep-learning-with-dobble/blob/main/deep-learning-with-dobble.ipynb)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
@@ -6,7 +6,9 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch_2.0.1-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
 [![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)](https://www.gnu.org/licenses/gpl-3.0.html.en)
 
-Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer term 2023. The project deadline was July 23, 2023. I have continued to work on this repository after the project was officially submitted. If you wish to browse the repository at the project deadline, click [here](https://github.com/mrvnthss/deep-learning-with-dobble/tree/b2d3f37fc3922c41284bc09b53fedb4b5aa2e5dd).
+Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer term 2023.
+
+**Note**: The official project deadline was July 23, 2023. I have continued to work on this repository after the project was officially submitted. If you wish to browse the repository at the project deadline, click [here](https://github.com/mrvnthss/deep-learning-with-dobble/tree/b2d3f37fc3922c41284bc09b53fedb4b5aa2e5dd).
 
 ## Table of Contents
 
