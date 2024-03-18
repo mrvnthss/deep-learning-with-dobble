@@ -1,4 +1,4 @@
-# Deep Learning with Dobble <a href="https://github.com/mrvnthss/deep-learning-with-dobble/"><img src="data/processed/classic-dobble/classic-dobble_021.png" align="right" height="120"/></a>
+# Deep Learning with Dobble <a href="https://github.com/mrvnthss/deep-learning-with-dobble"><img src="data/processed/classic-dobble/classic-dobble_021.png" align="right" height="120"/></a>
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mrvnthss/deep-learning-with-dobble/blob/main/deep-learning-with-dobble.ipynb)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
