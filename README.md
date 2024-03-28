@@ -6,7 +6,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch_2.2.1-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
 [![GitHub License](https://img.shields.io/github/license/mrvnthss/deep-learning-with-dobble?color=ad2317)](https://www.gnu.org/licenses/gpl-3.0.html.en)
 
-Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at the [**University of Giessen**](https://www.uni-giessen.de/) during the summer term 2023.
+Welcome to **Deep Learning with Dobble**! This repository contains the results of a graded project that formed part of the **Deep Learning** seminar taught at [**Justus Liebig University Giessen**](https://www.uni-giessen.de/) in Spring 2023.
 
 **Note**: The official project deadline was July 23, 2023. I have continued to work on this repository after the project was officially submitted. If you wish to browse the repository at the project deadline, click [here](https://github.com/mrvnthss/deep-learning-with-dobble/tree/b2d3f37fc3922c41284bc09b53fedb4b5aa2e5dd).
 
@@ -195,7 +195,7 @@ To start [JupyterLab](https://jupyter.org), simply run the following command ins
 juypter lab
 ```
 
-That's it, you're good to go! Simply open one of the notebooks. The [deep-learning-with-dobble.ipynb](deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring this one first!
+That's it, you're good to go! Simply open one of the notebooks. The [deep-learning-with-dobble.ipynb](deep-learning-with-dobble.ipynb) notebook contains most of the project, so I'd recommend exploring that one first!
 
 ## Languages and Tools
 
