@@ -143,7 +143,7 @@ Follow these steps to clone the repository and run the project on your local mac
 
 ### Prerequisites
 
-- Python 3.11 or higher installed on your machine.
+- Python 3.11 or 3.12 installed on your machine.
 - Operating system: Unix/macOS
 
 ### Clone the Repository
