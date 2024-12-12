@@ -1,4 +1,4 @@
-# Deep Learning with Dobble <a href="https://github.com/mrvnthss/deep-learning-with-dobble"><img src="data/processed/classic-dobble/classic-dobble_021.png" align="right" height="100"/></a>
+# Deep Learning with Dobble <a href="https://github.com/mrvnthss/deep-learning-with-dobble"><img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/data/processed/classic-dobble/classic-dobble_021.png?raw=true" align="right" height="100"/></a>
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mrvnthss/deep-learning-with-dobble/blob/main/deep-learning-with-dobble.ipynb)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
@@ -27,7 +27,7 @@ Welcome to **Deep Learning with Dobble**! This repository contains the results o
 [*Dobble*](https://www.dobblegame.com) is a popular card game that challenges players to spot matching symbols between pairs of cards. While there are different modes of play, the basic idea of the game remains the same: Every two cards in a deck of playing cards have exactly one symbol in common, and players must identify that unique symbol as quickly as possible. A classic *Dobble* deck consists of 55 playing cards, with 8 different symbols placed on each card. The constraint that any two cards share one and only one symbol gives rise to a rich mathematical structure known as finite projective planes. There are several well-written articles on the web about this topic, some of which I have listed in the [References](#references) section of this README.
 
 <div align="center">
-    <img src="reports/other/dobble-brettspiel-empfehlungen.jpg" alt="card-game-dobble" width="700">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/other/dobble-brettspiel-empfehlungen.jpg?raw=true" alt="card-game-dobble" width="700">
     <p>A set of <em>Dobble</em> cards.  <a href="https://brettspiel-empfehlungen.de">&copy Brettspiel Empfehlungen</a>. Used with permission.</p>
 </div>
 
@@ -59,7 +59,7 @@ The emojis used for this project are taken from [OpenMoji](https://openmoji.org)
 Here are the emojis we have chosen to resemble the original *Dobble* symbols as close as possible:
 
 <div align="center">
-    <img src="reports/figures/emojis/classic-dobble-emojis.png" alt="classic-dobble-emojis" width="600">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/emojis/classic-dobble-emojis.png?raw=true" alt="classic-dobble-emojis" width="600">
     <p>The emojis from <a href="https://openmoji.org">OpenMoji</a> used to create our own deck of <em>Dobble</em> playing cards.</p>
 </div>
 
@@ -74,35 +74,35 @@ Next, we had to implement a logic that would place the selected emojis on our vi
 To solve this task, we used results from the mathematical theory of *circle packing*. Circle packing involves arranging circles in a confined space so that they touch but don't overlap, aiming to fit as many circles as possible. The data we used for this project were taken from [Prof. Dr.-Ing. Eckehard Specht](https://www.ltv.ovgu.de/Mitarbeiter/Lehrstuhlinhaber/Prof_+Eckehard+Specht-p-210.html)'s website [packomania.com](http://www.packomania.com). A few selected circle packings for different numbers of circles are visualized below.
 
 <div align="center">
-    <img src="reports/figures/packings/packings-illustration.png" alt="packings-illustration" width="600">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/packings/packings-illustration.png?raw=true" alt="packings-illustration" width="600">
     <p>Different types of circle packings for different numbers of circles.</p>
 </div>
 
 Although all the square images of the emojis are the same size (in pixels), the emojis within them take up different amounts of space. In addition, some emojis extend far into the corners of the images, while others do not. To account for this, we have implemented a simple algorithm that automatically resizes each emoji to take up as much space as possible without extending outside the incircle of the square image. Below you can find an emoji that extended too far into the top right-hand corner, and consequently was downsized to correct for this.
 
 <div align="center">
-    <img src="reports/figures/emojis/downsized-emoji.png" alt="downsized-emoji" width="400">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/emojis/downsized-emoji.png?raw=true" alt="downsized-emoji" width="400">
     <p>Emojis that extend into the corners are automatically downsized.</p>
 </div>
 
 The ice emoji, on the other hand, does not use nearly all of the space available in the square image, so it is automatically enlarged.
 
 <div align="center">
-    <img src="reports/figures/emojis/enlarged-emoji.png" alt="downsized-emoji" width="400">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/emojis/enlarged-emoji.png?raw=true" alt="downsized-emoji" width="400">
     <p>Emojis that are too small are automatically enlarged.</p>
 </div>
 
 Below you can see the full set of emojis, automatically resized to take up as much space as possible without extending outside the incircle of the square image.
 
 <div align="center">
-    <img src="reports/figures/emojis/resized-classic-dobble-emojis.png" alt="resized-classic-dobble-emojis" width="600">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/emojis/resized-classic-dobble-emojis.png?raw=true" alt="resized-classic-dobble-emojis" width="600">
     <p>Resized emojis.</p>
 </div>
 
 With the emojis and their placement on the individual cards all figured out, we needed to implement an algorithm that would ultimately tell us which emoji to place on which card to create a valid deck of *Dobble* playing cards. Essentially, this comes down to computing the so-called *incidence matrix* of a finite projective plane of order $p^k$ for a prime number $p$. To read up on how this is done, I highly recommend [this article](https://mickydore.medium.com/the-dobble-algorithm-b9c9018afc52) by *Micky Dore*. Below is the full set of $57$ playing cards used in this project.
 
 <div align="center">
-    <img src="reports/figures/cards/classic-dobble-deck.png" alt="classic-dobble-deck" width="600">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/cards/classic-dobble-deck.png?raw=true" alt="classic-dobble-deck" width="600">
     <p>The full set of playing cards used in this project.</p>
 </div>
 
@@ -117,14 +117,14 @@ At this point in the project, we were essentially able to create our own dataset
 The image augmentation techniques we chose were intended to mimic the conditions a human being would face when playing the game (e.g., varying lighting conditions, different viewing angles, etc.).
 
 <div align="center">
-    <img src="reports/figures/cards/image-augmentation.png" alt="image-augmentation" width="600">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/cards/image-augmentation.png?raw=true" alt="image-augmentation" width="600">
     <p>Using image augmentation to increase the variability of our dataset.</p>
 </div>
 
 All of this was implemented in our custom `DobbleDataset` dataset class. Finally, we had the data we needed to train our models. All that remained was to set up a deep learning pipeline. To do this, we coded our own training, validation, and testing routines. We made sure to regularly save checkpoints during training, and we performed a simple sanity check before starting the training routines by overfitting models on a single batch of training data. This allowed us to get rid of any major bugs in advance. Additionally, we implemented the [REX learning rate scheduler](#rex) based on the `LRScheduler` class available in `torch.optim.lr_scheduler`. The decy factor used in this schedule is illustrated below.
 
 <div align="center">
-    <img src="reports/figures/results/rex-schedule.png" alt="rex-schedule" width="700">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/results/rex-schedule.png?raw=true" alt="rex-schedule" width="700">
     <p>The REX learning rate schedule.</p>
 </div>
 
@@ -133,7 +133,7 @@ All of this was implemented in our custom `DobbleDataset` dataset class. Finally
 To cap things off, we compared the performance of ResNet models of different depths. In hindsight, this was not very enlightening, as the smallest ResNet model already solved the task with perfect accuracy (evaluated on a test set the network had never seen before). The results we observed are also not surprising: the larger models required more epochs of training to produce meaningful results, because more parameters had to be fine-tuned to solve the task. In fact, 300 epochs of training was not enough to achieve (near) perfect accuracy for the two largest ResNet models.
 
 <div align="center">
-    <img src="reports/figures/results/resnet-comparison.png" alt="resnet-comparison" width="700">
+    <img src="https://github.com/mrvnthss/deep-learning-with-dobble/blob/main/reports/figures/results/resnet-comparison.png?raw=true" alt="resnet-comparison" width="700">
     <p>Training results for ResNet models of different depths.</p>
 </div>
 
